@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default (() => {\n  return 'Banana';\n});","map":{"version":3,"sources":["/Users/elufioyemichael/vms/microservices/ticketing/client/pages/banana.js"],"names":[],"mappings":"AAAA,gBAAe,MAAM;AACjB,SAAO,QAAP;AACH,CAFD","sourcesContent":["export default () => {\n    return 'Banana';\n};"]},"metadata":{},"sourceType":"module"}
