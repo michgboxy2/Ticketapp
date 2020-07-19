@@ -11,7 +11,7 @@ build:
     - image: michgboxy/auth
       context: auth
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync:
         manual:
           - src: "src/**/*.ts"
@@ -20,8 +20,17 @@ build:
     - image: michgboxy/client
       context: client
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync:
         manual:
           - src: "**/*.js"
+            dest: .
+
+    - image: michgboxy/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
             dest: .
