@@ -50,8 +50,6 @@ global.signin = async () => {
     .expect(201)
     .then((data) => {
       const cookie = data.get("Set-Cookie");
-      console.log(cookie);
-      // done();
       return cookie;
     });
 };

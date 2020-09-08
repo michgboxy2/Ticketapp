@@ -9,7 +9,7 @@ interface Event {
 export abstract class Publisher<T extends Event> {
   //This is a generic class because of the <> //abstract classes can only be extended. the can't be new()
   abstract subject: T["subject"];
-  private client: Stan;
+  protected client: Stan;
 
   constructor(client: Stan) {
     this.client = client;
