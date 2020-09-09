@@ -2,10 +2,10 @@ name: deploy-auth
 
 on:
   push:
-    branches: 
+    branches:
       - master
     paths:
-      - 'auth/**'
+      - "auth/**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,13 +13,12 @@ jobs:
       - uses: actions/checkout@v2
       - run: cd auth && docker build -t michgboxy/auth .
       - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-        env: 
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }} 
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - run: docker push michgboxy/auth #push to docker hub
-      - uses: digitalocean/action-doctl@v2 #call doctl 
+      - uses: digitalocean/action-doctl@v2 #call doctl
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} #set token
       - run: doctl kubernetes cluster kubeconfig save ticketing #set DO kubernetes config
-      - run: kubectl rollout restart deployment auth-depl #restart deployment file
-     
+      # - run: kubectl rollout restart deployment auth-depl #restart deployment file
