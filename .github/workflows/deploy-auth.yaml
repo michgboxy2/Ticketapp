@@ -21,4 +21,5 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} #set token
       - run: doctl kubernetes cluster kubeconfig save ticketing #set DO kubernetes config
-      # - run: kubectl rollout restart deployment auth-depl #restart deployment file
+      - run: kubectl rollout restart deployment auth-depl #restart deployment file
+
