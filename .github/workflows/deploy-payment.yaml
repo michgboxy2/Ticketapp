@@ -22,4 +22,4 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketing
       - run: kubectl get pods
-      - run: kubectl rollout restart deployment payment-depl
+      - run: kubectl rollout restart deployment payments-depl
