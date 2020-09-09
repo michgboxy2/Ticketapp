@@ -16,5 +16,10 @@ jobs:
         env: 
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }} 
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push michgboxy/auth
+      - run: docker push michgboxy/auth #push to docker hub
+      - uses: digitalocean/action-doctl@v2 #call doctl 
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} #set token
+      - run: doctl kubernetes cluster kebeconfig save ticketing #set DO kubernetes config
+      - run: kubectl rollout restart deployment auth-depl #restart deployment file
      
